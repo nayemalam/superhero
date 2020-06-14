@@ -3,6 +3,7 @@ import axios from 'axios';
 import SearchBar from '../components/searchbar/SearchBar';
 import { loadProgressBar } from 'axios-progress-bar'
 import 'axios-progress-bar/dist/nprogress.css'
+import NavLinks from '../components/navlinks/NavLinks';
 
 loadProgressBar()
 
@@ -19,11 +20,31 @@ class FetchSuperhero extends Component {
             loadedMssg: 'data loading ...',
             text: '',
             helperText: '',
-            team: []
+            team: [],
+            show: true,
+            hide: false
         }
 
         // axios cancel token
         this.src = ''
+        
+        this.search = this.search.bind(this);
+        this.handleHide = this.handleHide.bind(this);
+        this.handleShow = this.handleShow.bind(this);
+    }
+
+    handleHide () {
+        this.setState({
+            show: false,
+            hide: true 
+        })
+    }
+
+    handleShow () {
+        this.setState({
+            show: true,
+            hide: false 
+        })
     }
 
     add = (item) => {
@@ -96,14 +117,20 @@ class FetchSuperhero extends Component {
         console.log(this.state.data)
         return (
             <div>
-                <p style={{position: 'absolute', bottom: '0', right: '30px'}}>{this.state.loadedMssg}</p>
-                <SearchBar add={this.add} helperText={this.state.helperText} text={this.state.text} onTextChange={this.onTextChange.bind(this)} data={this.state.data} />
-                <ul style={{textAlign: 'center'}}>
-                    {(this.state.team || [])
-                        .map((item,id) => (
-                            <li key={id}>{item.powerstats.combat}</li>
-                    ))}
-                </ul>
+                <NavLinks handleHide={this.handleHide} handleShow={this.handleShow}/>
+                <div className={this.state.hide ? 'hide' : 'fetchsuperhero'}>
+                    <p style={{position: 'absolute', bottom: '0', right: '30px'}}>{this.state.loadedMssg}</p>
+                    <SearchBar add={this.add} helperText={this.state.helperText} text={this.state.text} onTextChange={this.onTextChange.bind(this)} data={this.state.data} handleHide={this.handleHide} />
+                    <div style={{position: 'absolute', top: '16px'}}>
+                        <h3>Team:</h3>
+                        <ul style={{textAlign: 'center'}}>
+                            {(this.state.team || [])
+                                .map((item,id) => (
+                                    <li key={id}>{item.powerstats.combat}</li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
             </div>
         )
     }

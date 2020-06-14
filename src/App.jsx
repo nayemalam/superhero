@@ -11,10 +11,10 @@ function App () {
 
       <Router>
         <Main />
-        <Switch>
-          <Route exact path='/' component={FetchSuperhero}></Route>
-          <Route exact path='/details' component={Details}></Route>
-        </Switch>
+        {/* <Switch> */}
+          <Route path='/' component={FetchSuperhero} />
+          <Route path='/details' component={Details} />
+        {/* </Switch> */}
       </Router>
     </div>
   );

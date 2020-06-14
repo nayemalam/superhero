@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 import { Link } from 'react-router-dom';
+import { Button } from '@material-ui/core';
 
 class SearchBar extends Component {
 
@@ -24,11 +25,12 @@ class SearchBar extends Component {
                     <ul>
                         {(this.props.data || [])
                         .map((item,id) => (
-                            <li key={id} onClick={() => this.props.add(item)}>{item.name} | 
+                            <li key={id}>{item.name} | 
                             <Link to={{
                                 pathname: '/details',
                                 aboutProps: item
-                            }}>Select</Link>
+                            }} onClick={this.props.handleHide}>Select</Link> |
+                            <Button onClick={() => this.props.add(item)}>ADD</Button>
                             </li>
                         ))}
                     </ul>

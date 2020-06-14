@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Button } from '@material-ui/core';
 
 class NavLinks extends Component {
     render() {
@@ -7,10 +8,14 @@ class NavLinks extends Component {
             <div className='navlinks'>
                 <ul>
                     <li>
-                        <Link to='/'>Search</Link>
+                        <Button>
+                            <Link to='/' onClick={this.props.handleShow}>Search</Link>
+                        </Button>
                     </li>
                     <li>
-                        <Link to='/details'>Hero Details</Link>
+                        <Button>
+                            <Link to='/details' onClick={this.props.handleHide}>Hero Details</Link>
+                        </Button>
                     </li>
                 </ul>
                 

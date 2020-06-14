@@ -4,4 +4,14 @@
         padding-right: 20px;
         display: inline;
     }
+    
+    width: 99%;
+    position: absolute;
+    top: 15px;
+    text-align: center;
+
+    span> a {
+        color: #000;
+        text-decoration: none;
+    }
 }

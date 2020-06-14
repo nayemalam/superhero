@@ -8,5 +8,10 @@ html {
 }
 
 .app {
+    height: 100%;
     font-family: $mainFont !important;
+
+    .hide {
+        display: none;
+    }
 }
