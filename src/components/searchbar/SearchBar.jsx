@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
+import { Link } from 'react-router-dom';
 
 class SearchBar extends Component {
 
@@ -8,21 +9,30 @@ class SearchBar extends Component {
         
         return (
             <div className='searchbar'>
-                <SearchIcon className='search-icon' />
-                <InputBase
-                    className='input-base'
-                    placeholder="Search…"
-                    fullWidth
-                    onChange={this.props.onTextChange}
-                    inputProps={{ 'aria-label': 'search' }}
-                />
-                <ul>
-                    {(this.props.data || [])
-                    // .filter(this.props.searchingFor(this.props.text))
-                    .map((item,id) => (
-                        <li key={id}>{item.name}</li>
-                    ))}
-                </ul>
+                <div className='search-field'>
+                    <SearchIcon className='search-icon' />
+                    <InputBase
+                        className='input-base'
+                        placeholder="Search…"
+                        fullWidth
+                        onChange={this.props.onTextChange}
+                        inputProps={{ 'aria-label': 'search' }}
+                    />
+                </div>
+                <p style={{textAlign: 'center'}}>{this.props.helperText}</p>
+                <div className='search-results'>
+                    <ul>
+                        {(this.props.data || [])
+                        .map((item,id) => (
+                            <li key={id} onClick={() => this.props.add(item)}>{item.name} | 
+                            <Link to={{
+                                pathname: '/details',
+                                aboutProps: item
+                            }}>Select</Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         )
     }

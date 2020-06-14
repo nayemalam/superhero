@@ -18,10 +18,20 @@ class FetchSuperhero extends Component {
             isLoaded: false,
             loadedMssg: 'data loading ...',
             text: '',
-            filteredData: []
+            helperText: '',
+            team: []
         }
 
+        // axios cancel token
         this.src = ''
+    }
+
+    add = (item) => {
+        var array = [...this.state.team]
+        array.push(item)
+        this.setState({
+            team: array
+        })
     }
 
     search = query => {
@@ -32,31 +42,42 @@ class FetchSuperhero extends Component {
         }
 
         this.src = axios.CancelToken.source();
-        
-        try {
-            axios.get(PROXY + API, {
-                cancelToken: this.src.token
+    
+        axios.get(PROXY + API, {
+            cancelToken: this.src.token
+        })
+        .then(result => {
+           
+            this.setState({
+                data: result.data.results,
+                isLoaded: true,
+                loadedMssg: 'data loaded.',
+                helperText: ''
             })
-            .then(result => 
+
+            if(typeof this.state.data === 'undefined') {
                 this.setState({
-                    data: result.data.results,
-                    isLoaded: true,
-                    loadedMssg: 'data loaded.'
+                    helperText: 'Hero does not exist.',
                 })
-            )
-        }
-        catch(error) {
-            if(axios.isCancel(error)) {
+            } 
+        })
+        .catch(error => {
+            if(axios.isCancel(error) || error) {
                 console.log('Req cancelled', error.message)
+                this.setState({
+                    isLoaded: false
+                })
             } else {
                 this.setState({
-                    loadedMssg: 'Too many requests, please wait 10 minutes.'
+                    isLoaded: false,
+                    loadedMssg: 'Error occured, check console for details.'
                 })
                 console.log("Can’t access " + API + " response. Blocked by browser")
             }
-        }
+        })
 
     }
+
     componentDidMount () {
         this.search();
     }
@@ -65,27 +86,24 @@ class FetchSuperhero extends Component {
         this.setState({
             text: event.target.value
         })
-        if(this.state.data !== null) {
-            this.search(event.target.value)
-        }
+        this.search(event.target.value)
+        
         // console.log(event.target.value)
-    }
-
-
-    searchingFor(term) {
-        return function(x) {
-            return x.name.toLowerCase().includes(term.toLowerCase()) || !term;
-        }
     }
 
     render () {
         // console.log(this.state.isLoaded ? this.state.loadedMssg : this.state.loadedMssg);
         console.log(this.state.data)
-
         return (
             <div>
                 <p style={{position: 'absolute', bottom: '0', right: '30px'}}>{this.state.loadedMssg}</p>
-                <SearchBar text={this.state.text} onTextChange={this.onTextChange.bind(this)} data={this.state.data} searchingFor={this.searchingFor}/>
+                <SearchBar add={this.add} helperText={this.state.helperText} text={this.state.text} onTextChange={this.onTextChange.bind(this)} data={this.state.data} />
+                <ul style={{textAlign: 'center'}}>
+                    {(this.state.team || [])
+                        .map((item,id) => (
+                            <li key={id}>{item.powerstats.combat}</li>
+                    ))}
+                </ul>
             </div>
         )
     }
