@@ -1,0 +1,20 @@
+.searchbar {
+    background: rgb(247, 247, 247);
+    width: 50%;
+    margin: 0 auto;
+    position: relative;
+
+    .input-base {
+        padding-left: 40px;
+    }
+
+    .search-icon {
+        height: 100%;
+        position: absolute;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 10px;
+    }
+}
