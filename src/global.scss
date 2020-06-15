@@ -1,10 +1,14 @@
 @import 
 // theme
 './sass/utilities/variables',
+'./sass/themes/overrides',
 './sass/themes/app',
-// search items
+// Main page
 './sass/components/header',
 './sass/components/navlinks',
 './sass/components/searchbar',
+'./sass/components/team',
 './sass/components/details',
 './sass/components/superherolist';
+
+// Details page

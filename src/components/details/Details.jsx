@@ -8,7 +8,10 @@ class Details extends Component {
 
         if (data.length === 0) {
             return (
-                <h3 style={{textAlign: 'center'}}>Please search for a superhero to see it's details</h3>
+                <div style={{textAlign: 'center'}}>
+                    <h3>Please search for a superhero to see it's details</h3>
+                    <p>You can click on the 'search' button above.</p>
+                </div>
             )
         }
         else {

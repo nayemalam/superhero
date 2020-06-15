@@ -6,6 +6,7 @@ class NavLinks extends Component {
     render() {
         return (
             <div className='navlinks'>
+                <div className='nav-items'>
                 <ul>
                     <li>
                         <Button>
@@ -18,6 +19,7 @@ class NavLinks extends Component {
                         </Button>
                     </li>
                 </ul>
+                </div>
                 
             </div>
         )
