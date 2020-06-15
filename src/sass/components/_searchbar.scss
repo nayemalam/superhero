@@ -1,12 +1,11 @@
 .searchbar {
     display: flow-root;
     height: 300px;
-    // background: radial-gradient(ellipse at bottom, #1591c2 0%, #090A0F 100%);
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
+    margin-top: -16px;
 
     .search-field {
         background: $dimWhite;
+        border-radius: 15px;
         width: 50%;
         margin: 0 auto;
         position: relative;

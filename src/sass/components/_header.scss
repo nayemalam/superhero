@@ -1,6 +1,9 @@
 .header {
-    margin-top: 150px;
+    background: $radialBg;
+    padding-top: 150px;
     text-align: center;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
 
     h1 {
         font-family: $titleFont;

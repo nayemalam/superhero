@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import superhero from '../../images/superhero-img.jpg';
+import superhero from '../../images/superhero-img.png';
 
 class Header extends Component {
     render() {
