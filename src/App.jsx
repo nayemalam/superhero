@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './global.scss';
 import Header from './components/header/Header';
-import Details from './components/details/Details';
+import Details from './components/pages/Details';
 // import FetchSuperhero from './api/FetchSuperhero';
-import Main from './components/Main';
+import Main from './components/pages/Main';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 

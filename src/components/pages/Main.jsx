@@ -1,12 +1,15 @@
+// external imports
 import React, { Component } from 'react';
 import axios from 'axios';
-import SearchBar from '../components/searchbar/SearchBar';
-import { loadProgressBar } from 'axios-progress-bar'
-import 'axios-progress-bar/dist/nprogress.css'
-import NavLinks from '../components/navlinks/NavLinks';
-import Team from '../components/team/Team';
+import { loadProgressBar } from 'axios-progress-bar';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
+// external css imports
+import 'axios-progress-bar/dist/nprogress.css'
 import 'react-notifications/lib/notifications.css';
+// component imports
+import SearchBar from '../searchbar/SearchBar';
+import NavLinks from '../navlinks/NavLinks';
+import Team from '../team/Team';
 
 loadProgressBar()
 
@@ -22,7 +25,7 @@ class Main extends Component {
             isLoaded: false,
             loadedMssg: 'data loading ...',
             text: '',
-            helperText: '',
+            helperText: 'Loading ...',
             team: [],
             show: true,
             hide: false

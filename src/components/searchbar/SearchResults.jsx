@@ -9,12 +9,24 @@ class SearchResults extends Component {
                 <ul>
                     {(this.props.data || [])
                     .map((item,id) => (
-                        <li key={id}>{item.name} | 
-                            <Link to={{
-                                pathname: '/details',
-                                aboutProps: item
-                            }} onClick={this.props.handleHide}>Select</Link> |
-                            <Button onClick={() => this.props.add(item)}>ADD</Button>
+                        <li key={id}>
+                            <span className='name'>
+                                {item.name}
+                            </span>
+                            <span className='link-details'>
+                                <Link 
+                                    to={{
+                                        pathname: '/details',
+                                        aboutProps: item
+                                    }} 
+                                    style={{color: 'black'}}
+                                    onClick={this.props.handleHide}>
+                                        View Details
+                                </Link>
+                            </span>
+                            <span className='addBtn'>
+                                <Button onClick={() => this.props.add(item)}>ADD</Button>
+                            </span>
                         </li>
                     ))}
                 </ul>

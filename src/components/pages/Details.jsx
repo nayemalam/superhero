@@ -10,7 +10,7 @@ class Details extends Component {
             return (
                 <div style={{textAlign: 'center'}}>
                     <h3>Please search for a superhero to see it's details</h3>
-                    <p>You can click on the 'search' button above.</p>
+                    <p>You can click on the 'home' button above.</p>
                 </div>
             )
         }

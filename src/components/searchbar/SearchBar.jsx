@@ -8,7 +8,7 @@ class SearchBar extends Component {
         return (
             <div className='searchbar'>
                 <SearchField onTextChange={this.props.onTextChange} />
-                <p style={{textAlign: 'center', color: 'white', fontWeight: 'bold'}}>{this.props.helperText}</p>
+                <p style={{textAlign: 'center', color: 'white', fontWeight: 'bold', fontSize: '20px'}}>{this.props.helperText}</p>
                 <SearchResults data={this.props.data} handleHide={this.props.handleHide} add={this.props.add} />
             </div>
         )

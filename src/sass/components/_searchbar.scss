@@ -10,6 +10,55 @@
         margin: 0 auto;
         height: 250px;
         overflow: auto;
+
+        ul {
+            
+
+            li {
+                display: flex;
+                background: rgba(219, 219, 219, 0.836);
+                margin: 10px 0;
+                margin-right: 30px;
+                padding: 5px 0 5px 10px;
+                // text-align: center;
+                list-style: none;
+                // list-style-type: square;
+
+                .name {
+                    flex: 1;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                }
+                .link-details {
+                    flex: 1;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-decoration-color: black;
+                    color: black;
+                }
+                .addBtn {
+                    flex: 1;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    padding: 0;
+                }
+            }
+
+        }
+
+       
+
+        // .addBtn {
+        //     padding: 0;
+        // }
+
+        // .link-details {
+        //     text-decoration-color: black;
+        //     color: black;
+        // }
     }
 
     .search-field {

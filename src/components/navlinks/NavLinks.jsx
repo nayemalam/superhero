@@ -1,6 +1,8 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@material-ui/core';
+import HomeIcon from '@material-ui/icons/Home';
+import InfoIcon from '@material-ui/icons/Info';
 
 class NavLinks extends Component {
     render() {
@@ -9,12 +11,12 @@ class NavLinks extends Component {
                 <div className='nav-items'>
                 <ul>
                     <li>
-                        <Button>
-                            <Link to='/' onClick={this.props.handleShow}>Search</Link>
+                        <Button startIcon={<HomeIcon />}>
+                            <Link to='/' onClick={this.props.handleShow}>Home</Link>
                         </Button>
                     </li>
                     <li>
-                        <Button>
+                        <Button startIcon={<InfoIcon />}>
                             <Link to='/details' onClick={this.props.handleHide}>Hero Details</Link>
                         </Button>
                     </li>

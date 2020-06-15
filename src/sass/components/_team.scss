@@ -1,10 +1,17 @@
 .team {
     margin-top: 50px;
     margin-left: 50px;
+    margin-bottom: 100px;
     // text-align: center;
     
     h1 {
         font-family: $titleFont;
         font-size: 50px;
     }
+
+    p {
+        text-align: center;
+    }
+
+
 }

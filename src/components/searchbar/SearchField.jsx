@@ -9,7 +9,7 @@ class SearchField extends Component {
                 <SearchIcon className='search-icon' />
                 <InputBase
                     className='input-base'
-                    placeholder="Search…"
+                    placeholder="Enter hero name ..."
                     fullWidth
                     onChange={this.props.onTextChange}
                     inputProps={{ 'aria-label': 'search' }}
