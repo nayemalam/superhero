@@ -28,8 +28,6 @@ class Main extends Component {
             text: '',
             helperText: 'Loading ...',
             team: [],
-            show: true,
-            hide: false,
             instructions: false
         }
 
@@ -37,28 +35,12 @@ class Main extends Component {
         this.src = ''
         
         this.search = this.search.bind(this);
-        this.handleHide = this.handleHide.bind(this);
-        this.handleShow = this.handleShow.bind(this);
         this.toggleInstructions = this.toggleInstructions.bind(this);
     }
 
     toggleInstructions () {
         this.setState({
             instructions: !this.state.instructions
-        })
-    }
-
-    handleHide () {
-        this.setState({
-            show: false,
-            hide: true 
-        })
-    }
-
-    handleShow () {
-        this.setState({
-            show: true,
-            hide: false 
         })
     }
 
@@ -107,7 +89,8 @@ class Main extends Component {
             if(axios.isCancel(error) || error) {
                 console.log('Req cancelled', error.message)
                 this.setState({
-                    isLoaded: false
+                    isLoaded: false,
+                    errorMssg: 'Error occured, check console for details.'
                 })
             } else {
                 this.setState({
@@ -129,21 +112,21 @@ class Main extends Component {
             text: event.target.value
         })
         this.search(event.target.value)
-        
         // console.log(event.target.value)
     }
 
     render () {
         // console.log(this.state.isLoaded ? this.state.errorMssg : this.state.errorMssg);
         console.log(this.state.data)
+        console.log(this.props.location.pathname)
         return (
             <div className='main'>
-                <NavLinks handleHide={this.handleHide} handleShow={this.handleShow}/>
-                <div className={this.state.hide ? 'hide' : 'fetchsuperhero'}>
-                    <SearchBar add={this.add} helperText={this.state.helperText} text={this.state.text} onTextChange={this.onTextChange.bind(this)} data={this.state.data} handleHide={this.handleHide} />
+                {/* <NavLinks handleHide={this.handleHide} handleShow={this.handleShow}/> */}
+                <div className={this.props.location.pathname === '/details' ? 'hide' : 'fetchsuperhero'}>
+                    <SearchBar add={this.add} helperText={this.state.helperText} text={this.state.text} onTextChange={this.onTextChange.bind(this)} data={this.state.data} />
                     <Team team={this.state.team} />
                     <NotificationContainer />
-                    <p style={{position: 'absolute', bottom: '0', right: '30px', color: 'red'}}>{this.state.errorMssg}</p>
+                    <h1 style={{position: 'absolute', bottom: '0', right: '30px', color: 'red'}}>{this.state.errorMssg}</h1>
                     <OtherLinks toggleInstructions={this.toggleInstructions} instructions={this.state.instructions} />
                 </div>
             </div>

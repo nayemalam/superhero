@@ -20,8 +20,8 @@ class SearchResults extends Component {
                                         aboutProps: item
                                     }} 
                                     style={{color: 'black'}}
-                                    onClick={this.props.handleHide}>
-                                        View Details
+                                >
+                                    View Details
                                 </Link>
                             </span>
                             <span className='addBtn'>
