@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-// import superhero from '../../images/superhero-img.jpg';
-import { CardHeader } from '@material-ui/core';
+import { 
+    Card,
+    CardActionArea,
+    CardContent,
+    CardHeader
+} from '@material-ui/core';
 
 class HeroCard extends Component {
     render() {

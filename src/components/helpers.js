@@ -1,14 +1,15 @@
-const filterArrayByName = function (data, text) {
-    if(this.state.search == null)
-        return data
-    else if(data.name.toLowerCase().includes(text.toLowerCase())) {
-        return data
-    }
-    // const filteredArray = array.filter(item => item.filters.includes(filteredString))
+const sumItems = function (array, key) {
+    return (array || []).map(item => parseInt(item.powerstats[key]))
+    .reduce(((a,b) => (a || 0) + (b || 0)), 0)
+}
 
-    // return filteredArray
+const avgItems = function(array, key) {
+    const value =  sumItems(array, key) / array.length
+    const fixedDecValue = Math.round(value * 100)/100
+    return fixedDecValue
 }
 
 module.exports = {
-    filterArrayByName: filterArrayByName
+    sumItems: sumItems,
+    avgItems: avgItems
 }

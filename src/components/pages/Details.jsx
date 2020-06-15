@@ -21,14 +21,7 @@ class Details extends Component {
                     <p>If you'd like to go back to your selection, please click on the 'home' button above.</p>
                     <HeroCard 
                         data={data}
-                    />
-                    {/* <h2>{data.name}</h2> */}
-                    {/* <ul>
-                        {Object.keys(data.biography || []).map((item, id) => (
-                            <li key={id}>{data.biography[item]}</li>
-                        ))}
-                    </ul> */}
-                    
+                    />                    
                 </div>
             )
         }
