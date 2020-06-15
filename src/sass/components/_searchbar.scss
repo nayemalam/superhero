@@ -13,16 +13,13 @@
 
         ul {
             
-
             li {
                 display: flex;
                 background: rgba(219, 219, 219, 0.836);
                 margin: 10px 0;
                 margin-right: 30px;
                 padding: 5px 0 5px 10px;
-                // text-align: center;
                 list-style: none;
-                // list-style-type: square;
 
                 .name {
                     flex: 1;
@@ -35,8 +32,8 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    text-decoration-color: black;
-                    color: black;
+                    text-decoration-color: $mainBlack;
+                    color: $mainBlack;
                 }
                 .addBtn {
                     flex: 1;
@@ -49,20 +46,10 @@
 
         }
 
-       
-
-        // .addBtn {
-        //     padding: 0;
-        // }
-
-        // .link-details {
-        //     text-decoration-color: black;
-        //     color: black;
-        // }
     }
 
     .search-field {
-        background: rgb(247, 247, 247);
+        background: $dimWhite;
         border-radius: 15px;
         width: 50%;
         margin: 0 auto;

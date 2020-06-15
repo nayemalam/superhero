@@ -10,6 +10,7 @@ import 'react-notifications/lib/notifications.css';
 import SearchBar from '../searchbar/SearchBar';
 import NavLinks from '../navlinks/NavLinks';
 import Team from '../team/Team';
+import OtherLinks from '../otherlinks/OtherLinks';
 
 loadProgressBar()
 
@@ -23,12 +24,13 @@ class Main extends Component {
         this.state = {
             data: [],
             isLoaded: false,
-            loadedMssg: 'data loading ...',
+            errorMssg: '',
             text: '',
             helperText: 'Loading ...',
             team: [],
             show: true,
-            hide: false
+            hide: false,
+            instructions: false
         }
 
         // axios cancel token
@@ -37,6 +39,13 @@ class Main extends Component {
         this.search = this.search.bind(this);
         this.handleHide = this.handleHide.bind(this);
         this.handleShow = this.handleShow.bind(this);
+        this.toggleInstructions = this.toggleInstructions.bind(this);
+    }
+
+    toggleInstructions () {
+        this.setState({
+            instructions: !this.state.instructions
+        })
     }
 
     handleHide () {
@@ -84,7 +93,7 @@ class Main extends Component {
             this.setState({
                 data: result.data.results,
                 isLoaded: true,
-                loadedMssg: 'data loaded.',
+                errorMssg: '',
                 helperText: ''
             })
 
@@ -103,7 +112,7 @@ class Main extends Component {
             } else {
                 this.setState({
                     isLoaded: false,
-                    loadedMssg: 'Error occured, check console for details.'
+                    errorMssg: 'Error occured, check console for details.'
                 })
                 console.log("Can’t access " + API + " response. Blocked by browser")
             }
@@ -125,7 +134,7 @@ class Main extends Component {
     }
 
     render () {
-        // console.log(this.state.isLoaded ? this.state.loadedMssg : this.state.loadedMssg);
+        // console.log(this.state.isLoaded ? this.state.errorMssg : this.state.errorMssg);
         console.log(this.state.data)
         return (
             <div className='main'>
@@ -134,7 +143,8 @@ class Main extends Component {
                     <SearchBar add={this.add} helperText={this.state.helperText} text={this.state.text} onTextChange={this.onTextChange.bind(this)} data={this.state.data} handleHide={this.handleHide} />
                     <Team team={this.state.team} />
                     <NotificationContainer />
-                    {/* <p style={{position: 'absolute', bottom: '0', right: '30px'}}>{this.state.loadedMssg}</p> */}
+                    <p style={{position: 'absolute', bottom: '0', right: '30px', color: 'red'}}>{this.state.errorMssg}</p>
+                    <OtherLinks toggleInstructions={this.toggleInstructions} instructions={this.state.instructions} />
                 </div>
             </div>
         )

@@ -1,4 +1,9 @@
 .navlinks {
+    width: 99%;
+    position: absolute;
+    top: 10px;
+    text-align: center;
+    
     li {
         list-style-type: none;
         padding-right: 20px;
@@ -6,7 +11,7 @@
     }
 
     .nav-items {
-        background: rgb(226, 226, 226);
+        background: $lightGrey;
         width: 350px;
         height: 60px;
         box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.75);
@@ -14,13 +19,8 @@
         display: inline-block;
     }
 
-    width: 99%;
-    position: absolute;
-    top: 10px;
-    text-align: center;
-
     span> a {
-        color: #000;
+        color: $mainBlack;
         text-decoration: none;
     }
 }

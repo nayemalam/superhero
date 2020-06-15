@@ -1,12 +1,13 @@
+// external impors
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import './global.scss';
+import CssBaseline from '@material-ui/core/CssBaseline';
+// component imports
 import Header from './components/header/Header';
 import Details from './components/pages/Details';
-// import FetchSuperhero from './api/FetchSuperhero';
 import Main from './components/pages/Main';
-import CssBaseline from '@material-ui/core/CssBaseline';
-
+// internal css imports
+import './global.scss';
 
 function App () {
   return (
@@ -14,10 +15,9 @@ function App () {
       <CssBaseline>
         <Router>
           <Header />
-          {/* <Switch> */}
-            <Route path='/' component={Main} />
-            <Route path='/details' component={Details} />
-          {/* </Switch> */}
+
+          <Route path='/' component={Main} />
+          <Route path='/details' component={Details} />
         </Router>
       </CssBaseline>
     </div>

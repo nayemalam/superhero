@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Grid } from '@material-ui/core';
+import HeroCard from '../herocard/HeroCard';
 
 class Team extends Component {
     render() {
@@ -14,12 +16,14 @@ class Team extends Component {
             return (
                 <div className='team'>
                     <h1>Your Team</h1>
-                    <ul style={{textAlign: 'center'}}>
+                    <Grid container spacing={4}>
                         {(this.props.team || [])
                             .map((item,id) => (
-                                <li key={id}>{item.powerstats.combat}</li>
+                                <Grid key={id} item xs={12} sm={6} md={6} lg={6} xl={6}>
+                                    <HeroCard name={item.name} img={item.image.url}/>
+                                </Grid>
                         ))}
-                    </ul>
+                    </Grid>
                 </div>
             )
         }

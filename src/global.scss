@@ -3,12 +3,13 @@
 './sass/utilities/variables',
 './sass/themes/overrides',
 './sass/themes/app',
-// main components
+// main page components
 './sass/components/header',
 './sass/components/navlinks',
-// searchbar components
 './sass/components/searchbar',
-// team
 './sass/components/team',
-//details components
-'./sass/pages/details';
+// details page components
+'./sass/pages/details',
+'./sass/components/herocard',
+// other
+'./sass/components/otherlinks';

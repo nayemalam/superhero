@@ -9,18 +9,18 @@ class NavLinks extends Component {
         return (
             <div className='navlinks'>
                 <div className='nav-items'>
-                <ul>
-                    <li>
-                        <Button startIcon={<HomeIcon />}>
-                            <Link to='/' onClick={this.props.handleShow}>Home</Link>
-                        </Button>
-                    </li>
-                    <li>
-                        <Button startIcon={<InfoIcon />}>
-                            <Link to='/details' onClick={this.props.handleHide}>Hero Details</Link>
-                        </Button>
-                    </li>
-                </ul>
+                    <ul>
+                        <li>
+                            <Button startIcon={<HomeIcon />}>
+                                <Link to='/' onClick={this.props.handleShow}>Home</Link>
+                            </Button>
+                        </li>
+                        <li>
+                            <Button startIcon={<InfoIcon />}>
+                                <Link to='/details' onClick={this.props.handleHide}>Hero Details</Link>
+                            </Button>
+                        </li>
+                    </ul>
                 </div>
                 
             </div>
