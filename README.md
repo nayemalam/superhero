@@ -1,5 +1,7 @@
 # Superhero Squad ⚡
 
+** This project was only tested on the Google Chrome browser
+
 ## Steps to reproduce:
 - #### git clone `https://github.com/nayemalam/superhero.git`
 - #### cd `superhero`
