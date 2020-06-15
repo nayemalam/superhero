@@ -3,8 +3,14 @@
     text-align: center;
     display: inline;
 
-    li {
-        display: inline-block;
-        list-style-type: none;
+    .instructions {
+        text-align: left;
+        padding-left: 30px;
+
+        li {
+            font-size: 20px;
+            font-weight: bold;
+            list-style-type: square !important;
+        }
     }
 }

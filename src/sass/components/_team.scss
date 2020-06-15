@@ -2,14 +2,54 @@
     margin-top: 50px;
     margin-left: 50px;
     margin-bottom: 100px;
+
+    hr {
+        margin-right: 20px;
+    }
     
     h1 {
         font-family: $titleFont;
         font-size: 50px;
     }
 
-    p {
+    .team-stats {
+        display: flex;
         text-align: center;
+        width: 80%;
+        margin: 0 auto;
+
+        .team-total {
+            flex: 1;
+        }
+
+        .team-avg {
+            flex: 1;
+        }
+
+        h3 {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        h4 {
+            font-weight: bold;
+
+            span {
+                margin-left: 20px;
+                font-size: 20px;
+            }
+        }
+    }
+
+    .members {
+        margin-top: 80px;
+    }
+
+    p {
+        margin-top: -30px;
+        margin-bottom: 50px;
+    }
+    li {
+        list-style-type: square;
     }
 
 

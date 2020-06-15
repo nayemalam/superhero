@@ -8,7 +8,6 @@ import 'axios-progress-bar/dist/nprogress.css'
 import 'react-notifications/lib/notifications.css';
 // component imports
 import SearchBar from '../searchbar/SearchBar';
-import NavLinks from '../navlinks/NavLinks';
 import Team from '../team/Team';
 import OtherLinks from '../otherlinks/OtherLinks';
 
@@ -58,6 +57,11 @@ class Main extends Component {
         })
     }
 
+    sum = (array, key) => {
+
+        return array.reduce((a,b) => a + (b[key] || 0), 0);
+    }
+
     search = query => {
         const API = `https://superheroapi.com/api/${accessToken}/search/${query}/`;
 
@@ -86,11 +90,10 @@ class Main extends Component {
             } 
         })
         .catch(error => {
-            if(axios.isCancel(error) || error) {
+            if(axios.isCancel(error)) {
                 console.log('Req cancelled', error.message)
                 this.setState({
-                    isLoaded: false,
-                    errorMssg: 'Error occured, check console for details.'
+                    isLoaded: false
                 })
             } else {
                 this.setState({
@@ -117,16 +120,15 @@ class Main extends Component {
 
     render () {
         // console.log(this.state.isLoaded ? this.state.errorMssg : this.state.errorMssg);
-        console.log(this.state.data)
-        console.log(this.props.location.pathname)
+        console.log((this.state.data || []))
+        // console.log(this.props.location.pathname)
         return (
             <div className='main'>
-                {/* <NavLinks handleHide={this.handleHide} handleShow={this.handleShow}/> */}
                 <div className={this.props.location.pathname === '/details' ? 'hide' : 'fetchsuperhero'}>
                     <SearchBar add={this.add} helperText={this.state.helperText} text={this.state.text} onTextChange={this.onTextChange.bind(this)} data={this.state.data} />
-                    <Team team={this.state.team} />
+                    <h1 style={{textAlign: 'center', color: 'red', bottom: '0'}}>{this.state.errorMssg}</h1>
+                    <Team team={this.state.team} sum={this.sum} />
                     <NotificationContainer />
-                    <h1 style={{position: 'absolute', bottom: '0', right: '30px', color: 'red'}}>{this.state.errorMssg}</h1>
                     <OtherLinks toggleInstructions={this.toggleInstructions} instructions={this.state.instructions} />
                 </div>
             </div>
