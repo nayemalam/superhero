@@ -1,7 +1,7 @@
 # Superhero Squad ⚡
+Demo version at: [https://nayemalam.github.io/superhero](https://nayemalam.github.io/superhero)
 
-** This project was only tested on the Google Chrome browser
-
+*** This project was only tested on the Google Chrome browser
 ## Steps to reproduce:
 - #### git clone `https://github.com/nayemalam/superhero.git`
 - #### cd `superhero`
@@ -21,10 +21,9 @@
     Runs the app in the production mode. <br/>
     Open http://localhost:5000 to view it in the browser. <br/>
     The page will not reload if you make edits.
-
 #
 #### What does this do?
-- [x] Allows users to search for a superhero by name
+- [x] Allows users to dynamically search for a superhero by name
 - [x] Display search results in a list
 - [x] Users can navigate to a selected superhero's details page
 - [x] Users can add a hero to their team
